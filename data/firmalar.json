@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "name": "Artaş Grubu",
+        "description": "Avrupa Konutları Markasının Yaratıcısı",
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600",
+        "projectCount": 42,
+        "founded": 1995,
+        "city": "İstanbul"
+    },
+    {
+        "id": 2,
+        "name": "Tahincioğlu Gayrimenkul",
+        "description": "Lüks ve Nitelikli Yaşam Alanları",
+        "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600",
+        "projectCount": 26,
+        "founded": 1998,
+        "city": "İstanbul"
+    },
+    {
+        "id": 3,
+        "name": "Mesa Holding",
+        "description": "Türkiye'nin En Köklü İnşaat Markası",
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600",
+        "projectCount": 56,
+        "founded": 1970,
+        "city": "İstanbul"
+    },
+    {
+        "id": 4,
+        "name": "Emlak Konut",
+        "description": "Türkiye'nin Lider Gayrimenkul Markası",
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+        "projectCount": 152,
+        "founded": 1981,
+        "city": "İstanbul"
+    },
+    {
+        "id": 5,
+        "name": "Rönesans Holding",
+        "description": "Global Ölçekte İnşaat ve Yatırım",
+        "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600",
+        "projectCount": 68,
+        "founded": 1993,
+        "city": "Ankara"
+    },
+    {
+        "id": 6,
+        "name": "Sinpaş GYO",
+        "description": "Hayalinizdeki Yaşam Alanları",
+        "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600",
+        "projectCount": 45,
+        "founded": 2007,
+        "city": "İstanbul"
+    },
+    {
+        "id": 7,
+        "name": "Nurol GYO",
+        "description": "Güvenilir ve Kaliteli Projeler",
+        "image": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600",
+        "projectCount": 38,
+        "founded": 2000,
+        "city": "İstanbul"
+    },
+    {
+        "id": 8,
+        "name": "Avrupa Konutları Plus",
+        "description": "Modern Şehir Yaşamının Öncüsü",
+        "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600",
+        "projectCount": 32,
+        "founded": 2010,
+        "city": "İstanbul"
+    },
+    {
+        "id": 9,
+        "name": "DAP Yapı",
+        "description": "İnovatif ve Sürdürülebilir Yapılar",
+        "image": "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=600",
+        "projectCount": 28,
+        "founded": 2006,
+        "city": "İstanbul"
+    }
+]

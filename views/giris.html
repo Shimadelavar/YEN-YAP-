@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap | yeniyapi.com</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0a192f;
+            --gold: #d4af37;
+            --gold-hover: #b8860b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .navbar {
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold);
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        /* MERKEZ KART */
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .form-label {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--navy);
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            padding: 12px 15px;
+            border: 2px solid #f1f5f9;
+            background: #f8fafc;
+        }
+
+        .btn-login {
+            background: var(--navy);
+            color: white;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.85rem;
+        }
+
+        .footer-link:hover {
+            color: var(--gold);
+        }
+
+        .divider {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 0.75rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        .divider span {
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="logo">yeniyapi<span>.com</span></a>
+            <a href="/" class="text-white text-decoration-none small fw-bold">
+                <i class="bi bi-house-door me-1"></i> Anasayfa
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="login-card">
+            <h3 class="fw-800 mb-1">Hoş Geldiniz</h3>
+            <p class="text-muted small mb-4">Lütfen hesabınıza giriş yapın.</p>
+
+            <form id="loginForm">
+                <div class="mb-3 text-start">
+                    <label class="form-label">E-posta</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="isim@ornek.com"
+                        required>
+                </div>
+                <div class="mb-3 text-start">
+                    <label class="form-label">Şifre</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="••••••••"
+                        required>
+                </div>
+                <div class="text-end mb-3">
+                    <a href="#" class="small text-decoration-none fw-bold" style="color: var(--gold);">Şifremi
+                        Unuttum</a>
+                </div>
+                <button type="submit" class="btn btn-login">Oturum Aç</button>
+                <div id="errorMsg" style="display:none; margin-top: 10px;" class="alert alert-danger"></div>
+            </form>
+
+            <div class="divider"><span>DEMO GİRİŞ</span></div>
+
+            <small class="text-muted d-block mb-2"><strong>Admin:</strong> admin@yeniyapi.com / admin123</small>
+            <small class="text-muted d-block"><strong>User:</strong> user@yeniyapi.com / user123</small>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="mb-2">
+                <a href="#" class="footer-link">Destek</a>
+                <a href="#" class="footer-link">Gizlilik</a>
+                <a href="#" class="footer-link">Şartlar</a>
+            </div>
+            <p class="small opacity-50 mb-0">© 2026 yeniyapi.com - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (!email || !password) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = '❌ Tüm alanları doldurunuz.';
+                return;
+            }
+
+            try {
+                const res = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    errorMsg.style.display = 'block';
+                    errorMsg.textContent = '❌ ' + (data.error || 'Giriş başarısız.');
+                    return;
+                }
+
+                // Success
+                errorMsg.style.display = 'none';
+                window.location.href = data.redirect || '/';
+
+            } catch (err) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = '❌ Bir hata oluştu, lütfen tekrar deneyin.';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yeniyapi.com | Güvenin ve Kalitenin Adresi</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #061224;
+            --gold: #d4af37;
+            --deep-gold: #b8860b;
+            --light-bg: #f4f7fa;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light-bg);
+        }
+
+        /* --- CANLI VE RENKLİ HEADER (HERO) --- */
+        .main-header {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a365d 100%);
+            padding: 80px 0 120px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        /* Arka plan süsü */
+        .main-header::after {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .logo-area {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .logo-area span {
+            color: var(--gold);
+        }
+
+        .header-tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        /* --- FİRMA BÖLÜMÜ BAŞLIĞI --- */
+        .section-title-box {
+            margin-top: -50px;
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .badge-gold {
+            background: linear-gradient(90deg, var(--gold), #f3e5ab);
+            color: var(--navy);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .main-title {
+            font-weight: 800;
+            color: var(--navy);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .main-title span {
+            background: linear-gradient(to right, var(--gold), var(--deep-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- FİRMA KARTLARI (ÖNCEKİ YAPININ MODERN HALİ) --- */
+        .company-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .company-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(6, 18, 36, 0.15);
+        }
+
+        .card-img-wrap {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .company-card:hover .card-img-wrap img {
+            transform: scale(1.1);
+        }
+
+        .trust-pill {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .trust-pill i {
+            color: #27ae60;
+        }
+
+        .content-area {
+            padding: 30px;
+        }
+
+        .project-count {
+            color: var(--deep-gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .company-description {
+            color: #5e6d82;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 15px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .guarantees {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .guarantees div {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        /* FOOTER MODERN */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 80px 0 40px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header text-center">
+        <div class="container">
+            <div class="logo-area">
+                yeniyapi<span>.com</span>
+            </div>
+            <h1 class="display-4 fw-800 mb-4">Türkiye'nin İnşaat Devleri</h1>
+            <div class="header-tagline">
+                Sadece finansal gücü kanıtlanmış, projelerini zamanında teslim eden ve
+                yüksek müşteri memnuniyetine sahip seçkin firmaları listeliyoruz.
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section-title-box">
+            <span class="badge-gold">Onaylı İş Ortaklarımız</span>
+            <h2 class="main-title">Güvenle <span>İnşa Ediyoruz</span></h2>
+            <p class="text-muted">Aşağıdaki firmalar yeniyapi.com "Güvenli Yapı" sertifikasına sahiptir.</p>
+        </div>
+        <div class="row g-4 mt-4" id="companiesListContainer">
+            <!-- Firmalar JavaScript'le yüklenecek -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        async function loadCompanies() {
+            try {
+                const response = await fetch('/api/firmalar');
+                const companies = await response.json();
+
+                const container = document.getElementById('companiesListContainer');
+                const companiesHTML = companies.map(company => `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="company-card">
+                            <div class="card-img-wrap">
+                                <div class="trust-pill"><i class="bi bi-shield-fill-check"></i> Doğrulanmış Firma</div>
+                                <img src="${company.image}" alt="${company.name}">
+                            </div>
+                            <div class="content-area">
+                                <div class="d-flex justify-content-between">
+                                    <span class="project-count"><i class="bi bi-building"></i> ${company.projectCount} Tamamlanan Proje</span>
+                                </div>
+                                <h4 class="fw-800 mt-2 mb-3">${company.name}</h4>
+                                <p class="company-description">
+                                    ${company.description}
+                                </p>
+                                <div class="guarantees">
+                                    <div><i class="bi bi-patch-check text-success me-2"></i> Doğrulanmış Firma</div>
+                                    <div><i class="bi bi-patch-check text-success me-2"></i> Güvenilir Proje Yönetimi</div>
+                                </div>
+                                <button class="btn btn-dark w-100 rounded-pill py-2 fw-bold">Detaylı İncele</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                container.innerHTML = companiesHTML;
+            } catch (error) {
+                console.error('Firmalar yüklenirken hata:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCompanies);
+    </script>
+
+    <footer>
+        <div class="container text-center text-md-start">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <h2 class="fw-bold mb-4">yeniyapi<span style="color:var(--gold)">.com</span></h2>
+                    <p class="opacity-50">Türkiye'nin gayrimenkul odaklı dijital güven platformu. Aradığınız evi,
+                        arkasında durduğumuz firmalarla bulun.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-4">Hızlı Erişim</h5>
+                    <ul class="list-unstyled opacity-75">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Tüm Projeler</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Güvenlik Analizi</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Yatırım Rehberi</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Hakkımızda</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-4">İletişim</h5>
+                    <p class="opacity-75 small">Maslak Plaza, Kat 12, Şişli / İstanbul</p>
+                    <p class="fw-bold" style="color:var(--gold)">444 0 555</p>
+                </div>
+            </div>
+            <div class="border-top border-secondary mt-5 pt-4 text-center">
+                <p class="small opacity-50">© 2026 yeniyapi.com - Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilim | yeniyapi.com</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0a192f;
+            --gold: #d4af37;
+            --soft-bg: #f8fafc;
+            --light-gold: #fffdf5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--soft-bg);
+        }
+
+        .navbar {
+            background: var(--navy);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), #f3e5ab);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .profile-details h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .profile-details p {
+            color: #64748b;
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .profile-details .detail-label {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--gold);
+            font-size: 1.8rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748b;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--navy);
+            border-bottom-color: var(--gold);
+        }
+
+        .tab-btn:hover {
+            color: var(--navy);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .admin-table thead {
+            background: var(--soft-bg);
+        }
+
+        .admin-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--navy);
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .admin-table td {
+            padding: 15px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .admin-table tr:hover {
+            background: var(--soft-bg);
+        }
+
+        .btn-admin-action {
+            padding: 8px 12px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .btn-edit {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-add {
+            background: var(--navy);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .btn-add:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .appointment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 15px;
+            transition: 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .appointment-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .appointment-card h5 {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .appointment-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 8px 0;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .appointment-detail i {
+            color: var(--gold);
+            width: 20px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .status-onaylandi {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-beklemede {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-iptal {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .offer-box {
+            background: linear-gradient(135deg, var(--gold) 0%, #f3e5ab 100%);
+            border-radius: 20px;
+            padding: 40px;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .offer-box h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .offer-box p {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .btn-offer {
+            background: var(--navy);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-offer:hover {
+            background: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(10, 25, 47, 0.3);
+        }
+
+        .btn-logout {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-logout:hover {
+            background: #dc2626;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-avatar {
+                margin: 0 auto;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .offer-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="logo">yeniyapi<span>.com</span></a>
+            <div>
+                <a href="/" class="btn btn-outline-light btn-sm rounded-pill px-4 me-2">Anasayfa</a>
+                <a href="/logout" class="btn btn-outline-danger btn-sm rounded-pill px-4">Çıkış</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-header">
+        <div class="container">
+            <h1><i class="bi bi-person-circle"></i> <span id="pageTitle">Profilim</span></h1>
+            <p class="opacity-75" id="pageSubtitle">Randevularınız ve yatırım fırsatlarınız</p>
+        </div>
+    </div>
+
+    <!-- TAB NAVİGASYON -->
+    <div style="background: white; border-bottom: 1px solid #e0e0e0; position: sticky; top: 0; z-index: 10;">
+        <div class="container" style="max-width: 900px;">
+            <nav style="display: flex; gap: 30px; padding: 0; overflow-x: auto;">
+                <button class="tab-btn active" onclick="switchTab('profile')"
+                    style="border: none; background: none; padding: 15px 0; font-weight: 700; color: var(--navy); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap;">
+                    <i class="bi bi-person"></i> Profil Bilgileri
+                </button>
+                <button class="tab-btn" onclick="switchTab('appointments')"
+                    style="border: none; background: none; padding: 15px 0; font-weight: 700; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap;">
+                    <i class="bi bi-calendar"></i> Randevularım
+                </button>
+                <button class="tab-btn" id="adminUsersTab" onclick="switchTab('admin-users')"
+                    style="display:none; border: none; background: none; padding: 15px 0; font-weight: 700; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap;">
+                    <i class="bi bi-people"></i> Kullanıcılar
+                </button>
+                <button class="tab-btn" id="adminAppointmentsTab" onclick="switchTab('admin-appointments')"
+                    style="display:none; border: none; background: none; padding: 15px 0; font-weight: 700; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap;">
+                    <i class="bi bi-calendar-check"></i> Tüm Randevular
+                </button>
+                <button class="tab-btn" id="adminProjectsTab" onclick="switchTab('admin-projects')"
+                    style="display:none; border: none; background: none; padding: 15px 0; font-weight: 700; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap;">
+                    <i class="bi bi-building"></i> Projeler
+                </button>
+                <button class="tab-btn" id="adminCompaniesTab" onclick="switchTab('admin-companies')"
+                    style="display:none; border: none; background: none; padding: 15px 0; font-weight: 700; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap;">
+                    <i class="bi bi-briefcase"></i> Firmalar
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container" style="max-width: 900px; padding-top: 30px;">
+
+        <!-- TAB 1: Profil Bilgileri -->
+        <div id="profile" class="tab-content active">
+            <div class="profile-card">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+                    <div class="profile-details">
+                        <h2 id="userName">Kullanıcı Adı</h2>
+                        <p><span class="detail-label"><i class="bi bi-envelope"></i> Email:</span> <span
+                                id="userEmail">email@example.com</span></p>
+                        <p><span class="detail-label"><i class="bi bi-telephone"></i> Telefon:</span> <span
+                                id="userPhone">05xx xxx xx xx</span></p>
+                        <p><span class="detail-label"><i class="bi bi-calendar"></i> Üye Olduğu Tarih:</span> <span
+                                id="userDate">-</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ödeme Planı Teklifi -->
+            <div class="offer-box">
+                <h3><i class="bi bi-gift"></i> Özel Yatırım Fırsatı</h3>
+                <p>Yeniyapi'nin seçkin yatırım ürünlerinden %15 indirimle faydalanın. Premium üyeler için özel ödeme
+                    planları ve danışmanlık hizmetleri.</p>
+                <button class="btn-offer" onclick="requestOffer()">
+                    <i class="bi bi-star me-2"></i>Teklif Talep Et
+                </button>
+            </div>
+
+            <!-- İletişim Kısmı -->
+            <div class="profile-card">
+                <h3 class="section-title"><i class="bi bi-chat-dots"></i> İhtiyacınız Mı Var?</h3>
+                <p style="color: #64748b; margin-bottom: 20px;">Sorularınız veya yatırım danışmanlığı için doğrudan
+                    iletişime geçin.</p>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <a href="tel:+905551234567" class="btn btn-outline-dark w-100">
+                            <i class="bi bi-telephone me-2"></i>Telefon Ara
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="https://wa.me/905551234567" target="_blank" class="btn btn-success w-100">
+                            <i class="bi bi-whatsapp me-2"></i>WhatsApp'tan Yazın
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: Randevularım -->
+        <div id="appointments" class="tab-content">
+            <div class="profile-card">
+                <h3 class="section-title"><i class="bi bi-calendar-check"></i> Randevularım</h3>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="filterAppointments('all')">Tümü</button>
+                    <button class="tab-btn" onclick="filterAppointments('onaylandi')">Onaylandı</button>
+                    <button class="tab-btn" onclick="filterAppointments('beklemede')">Beklemede</button>
+                    <button class="tab-btn" onclick="filterAppointments('iptal')">İptal Edilmiş</button>
+                </div>
+
+                <div id="appointmentsList">
+                    <div class="empty-state">
+                        <i class="bi bi-calendar-x"></i>
+                        <p>Henüz randevunuz bulunmamaktadır</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: Admin - Kullanıcı Yönetimi -->
+        <div id="admin-users" class="tab-content">
+            <div class="profile-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 class="section-title" style="margin: 0;"><i class="bi bi-people"></i> Kullanıcı Yönetimi</h3>
+                    <button class="btn-add" onclick="openAddUserModal()"><i class="bi bi-plus-lg"></i> Yeni
+                        Kullanıcı</button>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>Email</th>
+                                <th>Telefon</th>
+                                <th>Rol</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersList">
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 30px;">Yükleniyor...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: Admin - Randevu Yönetimi -->
+        <div id="admin-appointments" class="tab-content">
+            <div class="profile-card">
+                <h3 class="section-title"><i class="bi bi-calendar-check"></i> Tüm Randevular</h3>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Firma</th>
+                                <th>Kullanıcı</th>
+                                <th>Tarih</th>
+                                <th>Saat</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminAppointmentsList">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 30px;">Yükleniyor...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: Admin - Projeler Yönetimi -->
+        <div id="admin-projects" class="tab-content">
+            <div class="profile-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 class="section-title" style="margin: 0;"><i class="bi bi-building"></i> Proje Yönetimi</h3>
+                    <button class="btn-add" onclick="openAddProjectModal()"><i class="bi bi-plus-lg"></i> Yeni
+                        Proje</button>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Proje Adı</th>
+                                <th>Konum</th>
+                                <th>Oda</th>
+                                <th>Fiyat</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectsList">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 30px;">Yükleniyor...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 6: Admin - Firmalar Yönetimi -->
+        <div id="admin-companies" class="tab-content">
+            <div class="profile-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 class="section-title" style="margin: 0;"><i class="bi bi-briefcase"></i> Firma Yönetimi</h3>
+                    <button class="btn-add" onclick="openAddCompanyModal()"><i class="bi bi-plus-lg"></i> Yeni
+                        Firma</button>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Firma Adı</th>
+                                <th>Email</th>
+                                <th>Telefon</th>
+                                <th>İl</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="companiesList">
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 30px;">Yükleniyor...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>© 2026 yeniyapi.com - Profesyonel Yatırım Yönetimi</p>
+    </div>
+
+    <!-- MODALS -->
+    <div id="userModal"
+        style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); z-index: 1000; align-items:center; justify-content:center;">
+        <div style="background: white; border-radius: 15px; padding: 40px; width: 90%; max-width: 500px;">
+            <h3 style="margin-bottom: 20px; color: var(--navy);">Yeni Kullanıcı Ekle</h3>
+            <form id="userForm" onsubmit="saveUser(event)">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Ad</label>
+                    <input type="text" name="ad" required
+                        style="width: 100%; padding: 10px; border: 2px solid #f1f5f9; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Soyad</label>
+                    <input type="text" name="soyad" required
+                        style="width: 100%; padding: 10px; border: 2px solid #f1f5f9; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Email</label>
+                    <input type="email" name="email" required
+                        style="width: 100%; padding: 10px; border: 2px solid #f1f5f9; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Telefon</label>
+                    <input type="tel" name="telefon" required
+                        style="width: 100%; padding: 10px; border: 2px solid #f1f5f9; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Şifre</label>
+                    <input type="password" name="sifre" required
+                        style="width: 100%; padding: 10px; border: 2px solid #f1f5f9; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Rol</label>
+                    <select name="role"
+                        style="width: 100%; padding: 10px; border: 2px solid #f1f5f9; border-radius: 8px;">
+                        <option value="user">Kullanıcı</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit"
+                    style="width: 100%; background: var(--navy); color: white; padding: 12px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Kaydet</button>
+            </form>
+            <button onclick="closeUserModal()"
+                style="width: 100%; margin-top: 10px; background: #e0e0e0; color: var(--navy); padding: 12px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Kapat</button>
+        </div>
+    </div>
+
+    <script>
+        let currentFilter = 'all';
+        let allAppointments = [];
+
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function () {
+            loadUserProfile();
+            loadAppointments();
+        });
+
+        // Kullanıcı profilini yükle
+        function loadUserProfile() {
+            fetch('/api/check-auth')
+                .then(res => res.json())
+                .then(user => {
+                    if (user) {
+                        document.getElementById('userName').textContent = user.ad + ' ' + user.soyad;
+                        document.getElementById('userEmail').textContent = user.email;
+                        document.getElementById('userPhone').textContent = user.id || '-';
+                        // Tarih formatı - basit şekilde
+                        document.getElementById('userDate').textContent = new Date().toLocaleDateString('tr-TR');
+
+                        // Admin sekmelerini göster
+                        if (user.role === 'admin') {
+                            document.getElementById('adminUsersTab').style.display = 'inline-block';
+                            document.getElementById('adminAppointmentsTab').style.display = 'inline-block';
+                            document.getElementById('adminProjectsTab').style.display = 'inline-block';
+                            document.getElementById('adminCompaniesTab').style.display = 'inline-block';
+                            loadUsers();
+                            loadAdminAppointments();
+                            loadProjects();
+                            loadCompanies();
+                        }
+
+                        loadAppointments();
+                    } else {
+                        window.location.href = '/giris';
+                    }
+                })
+                .catch(() => window.location.href = '/giris');
+        }
+
+        // TAB SWITCHING
+        function switchTab(tabName) {
+            // Tüm tabları gizle
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Tüm butonları pasif yap
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            // Seçili tabı göster
+            const tabEl = document.getElementById(tabName);
+            if (tabEl) tabEl.classList.add('active');
+
+            // Seçili butonu aktif yap
+            event.target.classList.add('active');
+        }
+
+        // ADMIN: Kullanıcıları yükle
+        function loadUsers() {
+            fetch('/api/admin/users')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        const tbody = document.getElementById('usersList');
+                        if (data.users && data.users.length > 0) {
+                            tbody.innerHTML = data.users.map(user => `
+                                <tr>
+                                    <td>${user.ad} ${user.soyad}</td>
+                                    <td>${user.email}</td>
+                                    <td>${user.telefon}</td>
+                                    <td><strong>${user.role === 'admin' ? '👑 Admin' : 'Kullanıcı'}</strong></td>
+                                    <td>
+                                        <button class="btn-admin-action btn-delete" onclick="deleteUser(${user.id})">Sil</button>
+                                    </td>
+                                </tr>
+                            `).join('');
+                        } else {
+                            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 30px;">Kullanıcı bulunmamaktadır.</td></tr>';
+                        }
+                    }
+                })
+                .catch(err => console.error('Hata:', err));
+        }
+
+        // ADMIN: Randevuları yükle
+        function loadAdminAppointments() {
+            fetch('/api/admin/appointments')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        const tbody = document.getElementById('adminAppointmentsList');
+                        if (data.appointments && data.appointments.length > 0) {
+                            tbody.innerHTML = data.appointments.map(apt => `
+                                <tr>
+                                    <td>${apt.firma}</td>
+                                    <td>${apt.userName || 'Bilinmiyor'}</td>
+                                    <td>${apt.tarih}</td>
+                                    <td>${apt.saat}</td>
+                                    <td><strong>${getStatusLabel(apt.durum)}</strong></td>
+                                    <td>
+                                        ${apt.durum === 'beklemede' ? `
+                                            <button class="btn-admin-action btn-edit" onclick="quickApproveAppointment(${apt.id})" style="background: #10b981;">✓ Onayla</button>
+                                            <button class="btn-admin-action btn-delete" onclick="deleteAppointment(${apt.id})">✕ Reddet</button>
+                                        ` : `
+                                            <button class="btn-admin-action btn-edit" onclick="updateAppointmentStatus(${apt.id}, '${apt.durum}')">Durum Değiştir</button>
+                                            <button class="btn-admin-action btn-delete" onclick="deleteAppointment(${apt.id})">Sil</button>
+                                        `}
+                                    </td>
+                                </tr>
+                            `).join('');
+                        } else {
+                            tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 30px;">Randevu bulunmamaktadır.</td></tr>';
+                        }
+                    }
+                })
+                .catch(err => console.error('Hata:', err));
+        }
+
+        // ADMIN: Kullanıcı ekle modalı aç
+        function openAddUserModal() {
+            document.getElementById('userModal').style.display = 'flex';
+            document.getElementById('userForm').reset();
+        }
+
+        // Modal kapat
+        function closeUserModal() {
+            document.getElementById('userModal').style.display = 'none';
+        }
+
+        // ADMIN: Kullanıcı kaydet
+        function saveUser(e) {
+            e.preventDefault();
+            const formData = new FormData(document.getElementById('userForm'));
+            const data = {
+                ad: formData.get('ad'),
+                soyad: formData.get('soyad'),
+                email: formData.get('email'),
+                telefon: formData.get('telefon'),
+                sifre: formData.get('sifre'),
+                role: formData.get('role')
+            };
+
+            fetch('/api/admin/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(result => {
+                    if (result.success) {
+                        alert('Kullanıcı eklendi!');
+                        closeUserModal();
+                        loadUsers();
+                    } else {
+                        alert('Hata: ' + result.message);
+                    }
+                })
+                .catch(err => alert('Hata: ' + err));
+        }
+
+        // ADMIN: Kullanıcı sil
+        function deleteUser(userId) {
+            if (confirm('Bu kullanıcıyı silmek istediğinize emin misiniz?')) {
+                fetch(`/api/admin/users/${userId}`, { method: 'DELETE' })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Kullanıcı silindi!');
+                            loadUsers();
+                        }
+                    })
+                    .catch(err => alert('Hata: ' + err));
+            }
+        }
+
+        // ADMIN: Randevuyu hızlıca onayla
+        function quickApproveAppointment(appointmentId) {
+            fetch(`/api/admin/appointments/${appointmentId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ durum: 'onaylandi' })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('✓ Randevu onaylandı!');
+                        loadAdminAppointments();
+                    } else {
+                        alert('Hata: ' + (data.message || 'Randevu onaylanamadı'));
+                    }
+                })
+                .catch(err => alert('Hata: ' + err));
+        }
+
+        // ADMIN: Randevu durumunu güncelle
+        function updateAppointmentStatus(appointmentId, currentStatus) {
+            const newStatus = prompt('Yeni durumu girin (onaylandi/beklemede/iptal):', currentStatus);
+            if (newStatus && ['onaylandi', 'beklemede', 'iptal'].includes(newStatus)) {
+                fetch(`/api/admin/appointments/${appointmentId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ durum: newStatus })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Randevu durumu güncellendi!');
+                            loadAdminAppointments();
+                        }
+                    })
+                    .catch(err => alert('Hata: ' + err));
+            }
+        }
+
+        // ADMIN: Randevu sil
+        function deleteAppointment(appointmentId) {
+            if (confirm('Bu randevuyu silmek istediğinize emin misiniz?')) {
+                fetch(`/api/admin/appointments/${appointmentId}`, { method: 'DELETE' })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Randevu silindi!');
+                            loadAdminAppointments();
+                        }
+                    })
+                    .catch(err => alert('Hata: ' + err));
+            }
+        }
+
+        // Randevuları yükle (normal kullanıcı)
+        function loadAppointments() {
+            fetch('/api/my-appointments')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        allAppointments = data.appointments || [];
+                        displayAppointments(allAppointments);
+                    }
+                })
+                .catch(err => {
+                    console.error('Hata:', err);
+                    document.getElementById('appointmentsList').innerHTML = `
+                        <div class="empty-state">
+                            <i class="bi bi-exclamation-circle"></i>
+                            <p>Randevular yüklenemedi</p>
+                        </div>
+                    `;
+                });
+        }
+
+        // Randevuları filtrele
+        function filterAppointments(filter) {
+            currentFilter = filter;
+
+            // Sekmeleri güncelle
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filtrele ve göster
+            let filtered = allAppointments;
+            if (filter !== 'all') {
+                filtered = allAppointments.filter(a => a.durum === filter);
+            }
+
+            displayAppointments(filtered);
+        }
+
+        // Randevuları göster
+        function displayAppointments(appointments) {
+            const container = document.getElementById('appointmentsList');
+
+            if (appointments.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="bi bi-calendar-x"></i>
+                        <p>Bu kategoride randevu bulunmamaktadır</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = appointments.map(apt => `
+                <div class="appointment-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <h5>${apt.firma}</h5>
+                            <div class="appointment-detail">
+                                <i class="bi bi-calendar"></i>
+                                <span>${formatDate(apt.tarih)}</span>
+                            </div>
+                            <div class="appointment-detail">
+                                <i class="bi bi-clock"></i>
+                                <span>${apt.saat}</span>
+                            </div>
+                            <div class="appointment-detail">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>${apt.tur === 'office' ? 'Satış Ofisinde' : 'Online'}</span>
+                            </div>
+                            ${apt.notlar ? `<div class="appointment-detail">
+                                <i class="bi bi-chat-left-text"></i>
+                                <span>${apt.notlar}</span>
+                            </div>` : ''}
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-end;">
+                            <span class="status-badge status-${apt.durum}">
+                                ${getStatusLabel(apt.durum)}
+                            </span>
+                            ${apt.durum === 'beklemede' ? `
+                                <button class="btn btn-sm btn-warning" onclick="editAppointment(${apt.id}, '${apt.firma}', '${apt.tarih}', '${apt.saat}', '${(apt.notlar || '').replace(/'/g, "\\'")}')"><i class="bi bi-pencil"></i> Düzenle</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteUserAppointment(${apt.id})"><i class="bi bi-trash"></i> İptal Et</button>
+                            ` : `
+                                <button class="btn btn-sm btn-danger" onclick="deleteUserAppointment(${apt.id})"><i class="bi bi-trash"></i> İptal Et</button>
+                            `}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Tarih formatla
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('tr-TR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Durum etiketini getir
+        function getStatusLabel(status) {
+            const labels = {
+                'onaylandi': 'Onaylandı ✓',
+                'beklemede': 'Beklemede ⏳',
+                'iptal': 'İptal ✕'
+            };
+            return labels[status] || status;
+        }
+
+        // ADMIN: Projeleri yükle
+        function loadProjects() {
+            fetch('/api/projeler')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.getElementById('projectsList');
+                    const projects = Array.isArray(data) ? data : [];
+                    if (projects.length > 0) {
+                        tbody.innerHTML = projects.map(prj => `
+                            <tr>
+                                <td>${prj.name}</td>
+                                <td>${prj.location || 'İstanbul'}</td>
+                                <td>${prj.rooms || '2+1'}</td>
+                                <td>₺${prj.price || '0'}</td>
+                                <td><strong>${prj.status || 'Devam Ediyor'}</strong></td>
+                                <td>
+                                    <button class="btn-admin-action btn-edit" onclick="editProject(${prj.id}, '${prj.name}', '${prj.location}', '${prj.rooms}', '${prj.price}', '${prj.status}')">Düzenle</button>
+                                    <button class="btn-admin-action btn-delete" onclick="deleteProject(${prj.id})">Sil</button>
+                                </td>
+                            </tr>
+                        `).join('');
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 30px;">Proje bulunmamaktadır.</td></tr>';
+                    }
+                })
+                .catch(err => console.error('Hata:', err));
+        }
+
+        // ADMIN: Firmalar yükle
+        function loadCompanies() {
+            fetch('/api/firmalar')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.getElementById('companiesList');
+                    const companies = Array.isArray(data) ? data : [];
+                    if (companies.length > 0) {
+                        tbody.innerHTML = companies.map(cmp => `
+                            <tr>
+                                <td>${cmp.name}</td>
+                                <td>${cmp.email || '-'}</td>
+                                <td>${cmp.phone || '-'}</td>
+                                <td>${cmp.city || 'İstanbul'}</td>
+                                <td>
+                                    <button class="btn-admin-action btn-edit" onclick="editCompany(${cmp.id}, '${cmp.name}', '${cmp.email}', '${cmp.phone}', '${cmp.city}')">Düzenle</button>
+                                    <button class="btn-admin-action btn-delete" onclick="deleteCompany(${cmp.id})">Sil</button>
+                                </td>
+                            </tr>
+                        `).join('');
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 30px;">Firma bulunmamaktadır.</td></tr>';
+                    }
+                })
+                .catch(err => console.error('Hata:', err));
+        }
+
+        // ADMIN: Proje modal'ı aç
+        function openAddProjectModal() {
+            const modalHTML = `
+                <div class="modal fade" id="addProjectModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Yeni Proje Ekle</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addProjectForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Proje Adı *</label>
+                                        <input type="text" id="projectName" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Firma ID *</label>
+                                        <input type="number" id="projectFirmaId" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Açıklama *</label>
+                                        <textarea id="projectDescription" class="form-control" required></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Konum</label>
+                                        <input type="text" id="projectLocation" class="form-control" placeholder="İstanbul">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Oda Sayısı</label>
+                                        <input type="text" id="projectRooms" class="form-control" placeholder="2+1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Fiyat</label>
+                                        <input type="text" id="projectPrice" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Durum</label>
+                                        <select id="projectStatus" class="form-control">
+                                            <option value="Devam Ediyor">Devam Ediyor</option>
+                                            <option value="Başlangıç">Başlangıç</option>
+                                            <option value="Teslime Hazır">Teslime Hazır</option>
+                                            <option value="Tamamlandı">Tamamlandı</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Proje Resmi</label>
+                                        <input type="file" id="projectImage" class="form-control" accept="image/*">
+                                        <small class="text-muted">JPG, PNG, GIF formatları desteklenir</small>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                                <button type="button" class="btn btn-primary" onclick="submitAddProject()">Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Remove old modal if exists
+            const oldModal = document.getElementById('addProjectModal');
+            if (oldModal) oldModal.remove();
+
+            // Add new modal
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('addProjectModal'));
+            modal.show();
+        }
+
+        function submitAddProject() {
+            const name = document.getElementById('projectName').value;
+            const firmaId = document.getElementById('projectFirmaId').value;
+            const description = document.getElementById('projectDescription').value;
+            const location = document.getElementById('projectLocation').value || 'İstanbul';
+            const rooms = document.getElementById('projectRooms').value || '2+1';
+            const price = document.getElementById('projectPrice').value || '0';
+            const status = document.getElementById('projectStatus').value || 'Devam Ediyor';
+            const imageFile = document.getElementById('projectImage').files[0];
+
+            if (!name || !firmaId || !description) {
+                alert('Zorunlu alanları doldurunuz!');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('firmaId', firmaId);
+            formData.append('description', description);
+            formData.append('location', location);
+            formData.append('rooms', rooms);
+            formData.append('price', price);
+            formData.append('status', status);
+            if (imageFile) {
+                formData.append('image', imageFile);
+            }
+
+            fetch('/api/projeler', {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.json())
+                .then(result => {
+                    alert('Proje eklendi!');
+                    document.getElementById('addProjectModal').remove();
+                    loadProjects();
+                })
+                .catch(err => alert('Hata: ' + err));
+        }
+
+        // ADMIN: Firma modal'ı aç
+        function openAddCompanyModal() {
+            const modalHTML = `
+                <div class="modal fade" id="addCompanyModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Yeni Firma Ekle</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addCompanyForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Firma Adı *</label>
+                                        <input type="text" id="companyName" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Açıklama *</label>
+                                        <textarea id="companyDescription" class="form-control" required></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Şehir</label>
+                                        <input type="text" id="companyCity" class="form-control" placeholder="İstanbul">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Kuruluş Yılı</label>
+                                        <input type="number" id="companyFounded" class="form-control" placeholder="2020">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Firma Resmi</label>
+                                        <input type="file" id="companyImage" class="form-control" accept="image/*">
+                                        <small class="text-muted">JPG, PNG, GIF formatları desteklenir</small>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                                <button type="button" class="btn btn-primary" onclick="submitAddCompany()">Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Remove old modal if exists
+            const oldModal = document.getElementById('addCompanyModal');
+            if (oldModal) oldModal.remove();
+
+            // Add new modal
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('addCompanyModal'));
+            modal.show();
+        }
+
+        function submitAddCompany() {
+            const name = document.getElementById('companyName').value;
+            const description = document.getElementById('companyDescription').value;
+            const city = document.getElementById('companyCity').value || 'İstanbul';
+            const founded = document.getElementById('companyFounded').value || '2020';
+            const imageFile = document.getElementById('companyImage').files[0];
+
+            if (!name || !description) {
+                alert('Zorunlu alanları doldurunuz!');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('description', description);
+            formData.append('city', city);
+            formData.append('founded', founded);
+            if (imageFile) {
+                formData.append('image', imageFile);
+            }
+
+            fetch('/api/firmalar', {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.json())
+                .then(result => {
+                    alert('Firma eklendi!');
+                    document.getElementById('addCompanyModal').remove();
+                    loadCompanies();
+                })
+                .catch(err => alert('Hata: ' + err));
+        }
+
+        // ADMIN: Proje düzenle
+        function editProject(id, name, location, rooms, price, status) {
+            const newName = prompt('Proje adı:', name);
+            const newLocation = prompt('Konum:', location);
+            const newRooms = prompt('Oda:', rooms);
+            const newPrice = prompt('Fiyat:', price);
+            const newStatus = prompt('Durum:', status);
+
+            if (newName && newLocation && newRooms && newPrice) {
+                const data = { name: newName, location: newLocation, rooms: newRooms, price: newPrice, status: newStatus || status };
+                fetch(`/api/projeler/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        alert('Proje güncellendi!');
+                        loadProjects();
+                    })
+                    .catch(err => alert('Hata: ' + err));
+            }
+        }
+
+        // ADMIN: Firma düzenle
+        function editCompany(id, name, email, phone, city) {
+            const newName = prompt('Firma adı:', name);
+            const newEmail = prompt('Email:', email);
+            const newPhone = prompt('Telefon:', phone);
+            const newCity = prompt('İl:', city);
+
+            if (newName && newEmail && newPhone) {
+                const data = { name: newName, email: newEmail, phone: newPhone, city: newCity || city };
+                fetch(`/api/firmalar/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        alert('Firma güncellendi!');
+                        loadCompanies();
+                    })
+                    .catch(err => alert('Hata: ' + err));
+            }
+        }
+
+        // ADMIN: Proje sil
+        function deleteProject(projectId) {
+            if (confirm('Bu projeyi silmek istediğinize emin misiniz?')) {
+                fetch(`/api/projeler/${projectId}`, { method: 'DELETE' })
+                    .then(res => res.json())
+                    .then(data => {
+                        alert('Proje silindi!');
+                        loadProjects();
+                    })
+                    .catch(err => alert('Hata: ' + err));
+            }
+        }
+
+        // ADMIN: Firma sil
+        function deleteCompany(companyId) {
+            if (confirm('Bu firmayı silmek istediğinize emin misiniz?')) {
+                fetch(`/api/firmalar/${companyId}`, { method: 'DELETE' })
+                    .then(res => res.json())
+                    .then(data => {
+                        alert('Firma silindi!');
+                        loadCompanies();
+                    })
+                    .catch(err => alert('Hata: ' + err));
+            }
+        }
+
+        // Teklif talep et
+        function requestOffer() {
+            alert('Teklif talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.');
+        }
+
+        // Randevuyu düzenle
+        function editAppointment(aptId, firma, tarih, saat, notlar) {
+            const newFirma = prompt('Firma adı:', firma);
+            if (newFirma === null) return;
+
+            const newTarih = prompt('Tarih (YYYY-MM-DD):', tarih);
+            if (newTarih === null) return;
+
+            const newSaat = prompt('Saat (HH:MM):', saat);
+            if (newSaat === null) return;
+
+            const newNotlar = prompt('Notlar:', notlar);
+            if (newNotlar === null) return;
+
+            fetch(`/api/randevular/${aptId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    firma: newFirma,
+                    tarih: newTarih,
+                    saat: newSaat,
+                    notlar: newNotlar
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('✓ Randevu güncellendi!');
+                        loadAppointments();
+                    } else {
+                        alert('❌ Hata: ' + (data.message || 'Randevu güncellenemedi'));
+                    }
+                })
+                .catch(err => alert('❌ Hata: ' + err));
+        }
+
+        // Kullanıcı randevusunu sil
+        function deleteUserAppointment(aptId) {
+            if (confirm('Bu randevuyu iptal etmek istediğinize emin misiniz?')) {
+                fetch(`/api/randevular/${aptId}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('✓ Randevu iptal edildi!');
+                            loadAppointments();
+                        } else {
+                            alert('❌ Hata: ' + (data.message || 'Randevu silinemedi'));
+                        }
+                    })
+                    .catch(err => alert('❌ Hata: ' + err));
+            }
+        }
+
+        // Çıkış yap
+        function logout() {
+            if (confirm('Çıkış yapmak istediğinize emin misiniz?')) {
+                window.location.href = '/logout';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

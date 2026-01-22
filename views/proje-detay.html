@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Detayları | yeniyapi.com</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0a192f;
+            --gold: #d4af37;
+            --bg-soft: #f4f5f7;
+            --card-inner: #ffffff;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--navy);
+        }
+
+        .main-nav {
+            background: var(--navy);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .project-hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            border: 1px solid #eef0f2;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-img {
+            height: 350px;
+            object-fit: cover;
+            width: 100%;
+            transition: 0.5s;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.03);
+        }
+
+        .spec-badge {
+            background: #f8fafc;
+            border: 1px solid #eee;
+            padding: 10px 15px;
+            border-radius: 12px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .spec-badge i {
+            color: var(--gold);
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .spec-badge span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #64748b;
+        }
+
+        .spec-badge strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--navy);
+        }
+
+        .project-divider {
+            border-left: 5px solid var(--gold);
+            padding-left: 15px;
+            margin: 40px 0 30px;
+            font-weight: 800;
+        }
+
+        .payment-box {
+            background: #f0f4f8;
+            border: 1px solid #3498db;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 50px 0;
+            margin-top: 80px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 20px;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .badge-status {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="main-nav">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="logo">yeniyapi<span>.com</span></a>
+            <div class="d-none d-md-block text-white-50 small">Türkiye'nin En Büyük Proje Rehberi</div>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1 class="display-3 fw-800">Proje İnceleme</h1>
+            <p class="fs-5 opacity-75">Detaylı bilgiye ve yatırım imkanlarına göz atın</p>
+        </div>
+    </section>
+
+    <main class="container py-5">
+        <a href="/projeler" class="back-link"><i class="bi bi-arrow-left"></i> Projelere Dön</a>
+        <div id="projectDetails"></div>
+    </main>
+
+    <footer>
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold">yeniyapi.com</h4>
+                    <p class="opacity-50">Türkiye'nin en şeffaf proje platformu. Veriyle karar verin, güvenle alın.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold text-uppercase mb-3">Hızlı Linkler</h6>
+                    <ul class="list-unstyled opacity-75">
+                        <li><a href="/" class="text-white text-decoration-none">Anasayfa</a></li>
+                        <li><a href="/projeler" class="text-white text-decoration-none">Tüm Projeler</a></li>
+                        <li><a href="/randevu" class="text-white text-decoration-none">Randevu Oluştur</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4 text-md-end">
+                    <h6 class="fw-bold text-uppercase mb-3">Bizi Takip Edin</h6>
+                    <div class="d-flex justify-content-md-end gap-3">
+                        <i class="bi bi-facebook fs-4"></i>
+                        <i class="bi bi-instagram fs-4"></i>
+                        <i class="bi bi-linkedin fs-4"></i>
+                    </div>
+                </div>
+            </div>
+            <hr class="opacity-25 my-4">
+            <p class="text-center small opacity-50 mb-0">© 2026 yeniyapi.com. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // URL'den proje ID'sini al
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        // Proje detaylarını yükle
+        async function loadProjectDetails() {
+            if (!projectId) {
+                showError('Proje bulunamadı. Lütfen projeler sayfasından bir proje seçiniz.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/projeler');
+                const projects = await response.json();
+                const project = projects.find(p => p.id == projectId);
+
+                if (!project) {
+                    showError('Bu proje bulunamadı. Proje silinmiş veya taşınmış olabilir.');
+                    return;
+                }
+
+                displayProject(project);
+            } catch (error) {
+                console.error('Hata:', error);
+                showError('Proje yüklenirken bir hata oluştu. Lütfen tekrar deneyiniz.');
+            }
+        }
+
+        function displayProject(project) {
+            // Apartment Types Section
+            const apartmentTypesHTML = project.apartmentTypes && project.apartmentTypes.length > 0 
+                ? `
+                <div class="mt-5">
+                    <h4 class="fw-bold mb-4"><i class="bi bi-house-door text-warning me-2"></i>Daire Tipleri</h4>
+                    <div class="row g-3">
+                        ${project.apartmentTypes.map(apt => `
+                            <div class="col-md-4">
+                                <div class="card border-0 shadow-sm h-100" style="border-radius: 15px;">
+                                    <div class="card-body text-center p-4">
+                                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                            <i class="bi bi-door-open fs-3 text-warning"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">${apt.type}</h5>
+                                        <p class="text-muted small mb-2"><i class="bi bi-rulers"></i> ${apt.size}</p>
+                                        <p class="text-muted small mb-2"><i class="bi bi-building"></i> ${apt.count} Adet</p>
+                                        <p class="text-primary fw-600 mb-0 small">${apt.priceRange}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : '';
+
+            // Features Section
+            const featuresHTML = project.features && project.features.length > 0
+                ? `
+                <div class="mt-5">
+                    <h4 class="fw-bold mb-4"><i class="bi bi-star text-warning me-2"></i>Özellikler</h4>
+                    <div class="row g-3">
+                        ${project.features.map(feature => `
+                            <div class="col-md-4 col-sm-6">
+                                <div class="d-flex align-items-center p-3 bg-light rounded">
+                                    <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i>
+                                    <span>${feature}</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : '';
+
+            const html = `
+                <h2 class="project-divider">${project.name}</h2>
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="project-card">
+                            <div class="row g-0">
+                                <div class="col-lg-5">
+                                    <img src="${project.image || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800'}" 
+                                        class="project-img" alt="${project.name}">
+                                </div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div>
+                                            <h3 class="fw-800 mb-2">${project.name}</h3>
+                                            <p class="text-muted mb-0"><i class="bi bi-geo-alt"></i> ${project.location || 'İstanbul'}</p>
+                                        </div>
+                                        <span class="badge-status ${getStatusBadgeClass(project.status)}">${project.status || 'Devam Ediyor'}</span>
+                                    </div>
+
+                                    <div class="d-flex gap-2 mt-4 flex-wrap">
+                                        <div class="spec-badge">
+                                            <i class="bi bi-door-open"></i>
+                                            <span>Oda Tipleri</span>
+                                            <strong>${project.rooms || '2+1'}</strong>
+                                        </div>
+                                        <div class="spec-badge">
+                                            <i class="bi bi-building"></i>
+                                            <span>Toplam Daire</span>
+                                            <strong>${project.totalUnits || '-'}</strong>
+                                        </div>
+                                        <div class="spec-badge">
+                                            <i class="bi bi-layers"></i>
+                                            <span>Kat Sayısı</span>
+                                            <strong>${project.floors || '-'}</strong>
+                                        </div>
+                                        <div class="spec-badge">
+                                            <i class="bi bi-calendar-check"></i>
+                                            <span>Teslim</span>
+                                            <strong>${project.deliveryDate || '-'}</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="payment-box">
+                                        <h6 class="fw-800 text-primary mb-2"><i class="bi bi-info-circle me-2"></i>Proje Hakkında</h6>
+                                        <p class="small mb-0 text-dark">${project.description || 'Bu proje yatırım için ideal bir seçenektir. Detaylı bilgi için randevu oluşturunuz.'}</p>
+                                    </div>
+
+                                    <div class="mt-4 d-flex gap-2">
+                                        <a href="/randevu" class="btn btn-dark flex-grow-1 py-3 fw-bold">
+                                            <i class="bi bi-calendar-check"></i> Randevu Oluştur
+                                        </a>
+                                        <a href="/projeler" class="btn btn-outline-dark py-3 fw-bold">
+                                            <i class="bi bi-arrow-left"></i> Geri Dön
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                ${apartmentTypesHTML}
+                ${featuresHTML}
+            `;
+
+            document.getElementById('projectDetails').innerHTML = html;
+        }
+
+        function showError(message) {
+            const html = `
+                <div class="empty-state">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <h4 class="fw-bold mt-3 mb-2">Hata!</h4>
+                    <p class="text-muted mb-4">${message}</p>
+                    <a href="/projeler" class="btn btn-dark">Projelere Dön</a>
+                </div>
+            `;
+            document.getElementById('projectDetails').innerHTML = html;
+        }
+
+        function getStatusBadgeClass(status) {
+            if (status === 'Tamamlandı') return 'bg-success text-white';
+            if (status === 'Devam Ediyor') return 'bg-info text-white';
+            if (status === 'Başlangıç') return 'bg-warning text-dark';
+            return 'bg-secondary text-white';
+        }
+
+        function formatPrice(price) {
+            if (typeof price === 'string') return price;
+            return price.toLocaleString('tr-TR');
+        }
+
+        // Sayfa yüklendiğinde proje detaylarını getir
+        loadProjectDetails();
+    </script>
+
+</body>
+
+</html>

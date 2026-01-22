@@ -1,0 +1,512 @@
+[
+  {
+    "id": 1,
+    "name": "Avrupa Konutları Atakent",
+    "firmaId": 1,
+    "description": "Geniş peyzaj manzaralı, gün ışığını maksimum alan köşe daire tipi.",
+    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800",
+    "location": "Başakşehir, İstanbul",
+    "status": "Teslime Hazır",
+    "price": "450000",
+    "rooms": "2+1, 3+1",
+    "totalUnits": 186,
+    "deliveryDate": "2026-06",
+    "floors": 12,
+    "blockCount": 3,
+    "features": [
+      "Kapalı Otopark",
+      "Spor Salonu",
+      "Yüzme Havuzu",
+      "Çocuk Oyun Alanı",
+      "Güvenlik",
+      "Peyzaj Bahçe"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "2+1",
+        "count": 78,
+        "size": "105 m²",
+        "priceRange": "₺3,200,000 - ₺3,850,000"
+      },
+      {
+        "type": "3+1",
+        "count": 98,
+        "size": "145 m²",
+        "priceRange": "₺4,500,000 - ₺5,200,000"
+      },
+      {
+        "type": "4+1 Dubleks",
+        "count": 10,
+        "size": "220 m²",
+        "priceRange": "₺7,500,000 - ₺8,900,000"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Nidapark İstinye",
+    "firmaId": 2,
+    "description": "İstinye sırtlarında, özel bahçe kullanımına sahip ultra lüks dubleks seçeneği.",
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+    "location": "Sarıyer, İstanbul",
+    "status": "Devam Ediyor",
+    "price": "1250000",
+    "rooms": "3+1, 4+2, 5+2",
+    "totalUnits": 124,
+    "deliveryDate": "2027-03",
+    "floors": 18,
+    "blockCount": 2,
+    "features": [
+      "Concierge Hizmeti",
+      "SPA & Wellness",
+      "Açık Kapalı Havuz",
+      "Restoran",
+      "7/24 Güvenlik",
+      "Smart Home Sistemi"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "3+1",
+        "count": 42,
+        "size": "165 m²",
+        "priceRange": "₺9,800,000 - ₺11,500,000"
+      },
+      {
+        "type": "4+2",
+        "count": 58,
+        "size": "210 m²",
+        "priceRange": "₺12,500,000 - ₺15,200,000"
+      },
+      {
+        "type": "5+2 Penthouse",
+        "count": 24,
+        "size": "320 m²",
+        "priceRange": "₺22,000,000 - ₺28,500,000"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Mesa Orman II",
+    "firmaId": 3,
+    "description": "Çubuklu ormanlarının içinde, yüksek tavanlı ve teraslı loft daire deneyimi.",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800",
+    "location": "Çubuklu, İstanbul",
+    "status": "Teslime Hazır",
+    "price": "850000",
+    "rooms": "2+1, 3+1, 4+1",
+    "totalUnits": 156,
+    "deliveryDate": "2026-09",
+    "floors": 14,
+    "blockCount": 4,
+    "features": [
+      "Orman Manzarası",
+      "Yoga Stüdyosu",
+      "Bisiklet Parkı",
+      "Sosyal Tesis",
+      "Market",
+      "Kafe"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "2+1",
+        "count": 64,
+        "size": "118 m²",
+        "priceRange": "₺6,500,000 - ₺7,800,000"
+      },
+      {
+        "type": "3+1",
+        "count": 72,
+        "size": "158 m²",
+        "priceRange": "₺8,500,000 - ₺9,900,000"
+      },
+      {
+        "type": "4+1 Loft",
+        "count": 20,
+        "size": "195 m²",
+        "priceRange": "₺11,200,000 - ₺13,500,000"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Yeni Levent Residans",
+    "firmaId": 1,
+    "description": "Levent merkezinde, modern tasarım ve yüksek teknoloji ile donatılmış lüks konutlar.",
+    "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+    "location": "Levent, İstanbul",
+    "status": "Başlangıç",
+    "price": "950000",
+    "rooms": "2+1, 3+1, Office",
+    "totalUnits": 268,
+    "deliveryDate": "2028-01",
+    "floors": 28,
+    "blockCount": 1,
+    "features": [
+      "Metro Yakını",
+      "Alışveriş Merkezi",
+      "Ofis Katları",
+      "Toplantı Salonları",
+      "Fitness Center",
+      "Termal Cafe"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "2+1",
+        "count": 96,
+        "size": "98 m²",
+        "priceRange": "₺7,200,000 - ₺8,500,000"
+      },
+      {
+        "type": "3+1",
+        "count": 112,
+        "size": "135 m²",
+        "priceRange": "₺9,500,000 - ₺11,200,000"
+      },
+      {
+        "type": "Office 1+0",
+        "count": 60,
+        "size": "65 m²",
+        "priceRange": "₺4,800,000 - ₺5,500,000"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Bomonti Concept",
+    "firmaId": 5,
+    "description": "Şişli'nin kalbinde, ofis ve konut birleşimi karma kullanım projesi. Modern mimarisi ile dikkat çeken proje.",
+    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800",
+    "location": "Şişli, İstanbul",
+    "status": "Devam Ediyor",
+    "price": "780000",
+    "rooms": "1+1, 2+1, Office",
+    "totalUnits": 342,
+    "deliveryDate": "2027-06",
+    "floors": 32,
+    "blockCount": 2,
+    "features": [
+      "Metro İstasyonu",
+      "Ofis Katları",
+      "Restoran & Cafe",
+      "Konferans Salonu",
+      "Kapalı Otopark",
+      "Coworking Alanı"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "1+1",
+        "count": 128,
+        "size": "68 m²",
+        "priceRange": "₺4,200,000 - ₺4,900,000"
+      },
+      {
+        "type": "2+1",
+        "count": 142,
+        "size": "105 m²",
+        "priceRange": "₺6,800,000 - ₺7,800,000"
+      },
+      {
+        "type": "Office 1+0",
+        "count": 72,
+        "size": "52 m²",
+        "priceRange": "₺3,500,000 - ₺4,200,000"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Marmara Pearl Residences",
+    "firmaId": 6,
+    "description": "Maltepe sahilinde, deniz manzaralı lüks yaşam. Özel plaj kullanımı ve marina erişimi.",
+    "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800",
+    "location": "Maltepe, İstanbul",
+    "status": "Teslime Hazır",
+    "price": "920000",
+    "rooms": "2+1, 3+1, 4+1",
+    "totalUnits": 198,
+    "deliveryDate": "2026-12",
+    "floors": 22,
+    "blockCount": 3,
+    "features": [
+      "Özel Plaj",
+      "Marina",
+      "Deniz Manzarası",
+      "Yüzme Havuzu",
+      "Aquapark",
+      "Restaurant"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "2+1",
+        "count": 86,
+        "size": "112 m²",
+        "priceRange": "₺7,800,000 - ₺9,200,000"
+      },
+      {
+        "type": "3+1",
+        "count": 92,
+        "size": "155 m²",
+        "priceRange": "₺10,500,000 - ₺12,800,000"
+      },
+      {
+        "type": "4+1 Deniz Manzaralı",
+        "count": 20,
+        "size": "205 m²",
+        "priceRange": "₺15,200,000 - ₺18,500,000"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Green Valley Evleri",
+    "firmaId": 7,
+    "description": "Beykoz'un yeşil doğasıyla bütünleşmiş, sürdürülebilir mimari anlayışıyla tasarlanmış villa konseptli konutlar.",
+    "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800",
+    "location": "Beykoz, İstanbul",
+    "status": "Devam Ediyor",
+    "price": "1150000",
+    "rooms": "3+1, 4+1, 5+2 Villa",
+    "totalUnits": 78,
+    "deliveryDate": "2027-09",
+    "floors": 3,
+    "blockCount": 26,
+    "features": [
+      "Özel Bahçe",
+      "Şömine",
+      "BBQ Alanı",
+      "Çocuk Parkı",
+      "Yeşil Alan",
+      "Güvenlik"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "3+1 Bahçe Katı",
+        "count": 24,
+        "size": "175 m²",
+        "priceRange": "₺8,900,000 - ₺10,500,000"
+      },
+      {
+        "type": "4+1 Villa",
+        "count": 38,
+        "size": "240 m²",
+        "priceRange": "₺11,500,000 - ₺14,200,000"
+      },
+      {
+        "type": "5+2 Villa",
+        "count": 16,
+        "size": "320 m²",
+        "priceRange": "₺16,800,000 - ₺21,500,000"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Maslak Business Plaza",
+    "firmaId": 4,
+    "description": "Maslak'ın prestijli lokasyonunda, ticari ve konut alanlarının birleştiği akıllı bina projesi.",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800",
+    "location": "Maslak, İstanbul",
+    "status": "Teslime Hazır",
+    "price": "1080000",
+    "rooms": "1+1, 2+1, Office",
+    "totalUnits": 412,
+    "deliveryDate": "2026-08",
+    "floors": 36,
+    "blockCount": 1,
+    "features": [
+      "Smart Building",
+      "Helipad",
+      "Sky Lounge",
+      "Business Center",
+      "Conference Rooms",
+      "Valet Parking"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "1+1 Studio",
+        "count": 98,
+        "size": "72 m²",
+        "priceRange": "₺5,800,000 - ₺6,500,000"
+      },
+      {
+        "type": "2+1",
+        "count": 186,
+        "size": "118 m²",
+        "priceRange": "₺8,900,000 - ₺10,800,000"
+      },
+      {
+        "type": "Office",
+        "count": 128,
+        "size": "85 m²",
+        "priceRange": "₺6,200,000 - ₺7,500,000"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Kadıköy Loft Suites",
+    "firmaId": 8,
+    "description": "Kadıköy'ün merkezinde, genç profesyoneller için tasarlanmış butik loft daire konsepti.",
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800",
+    "location": "Kadıköy, İstanbul",
+    "status": "Başlangıç",
+    "price": "650000",
+    "rooms": "1+1 Loft, 2+1 Loft",
+    "totalUnits": 142,
+    "deliveryDate": "2028-03",
+    "floors": 16,
+    "blockCount": 1,
+    "features": [
+      "Rooftop Bar",
+      "Coworking Space",
+      "Cafe & Restaurant",
+      "Spor Salonu",
+      "Sinema Odası",
+      "Oyun Salonu"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "1+1 Loft",
+        "count": 86,
+        "size": "85 m²",
+        "priceRange": "₺5,200,000 - ₺6,500,000"
+      },
+      {
+        "type": "2+1 Loft",
+        "count": 56,
+        "size": "125 m²",
+        "priceRange": "₺7,800,000 - ₺9,200,000"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Bosphorus Sky Towers",
+    "firmaId": 2,
+    "description": "Beşiktaş'ta Boğaz manzaralı ikiz kuleler. Ultra lüks yaşam alanları ve 5 yıldız otel konforu.",
+    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=60",
+    "location": "Beşiktaş, İstanbul",
+    "status": "Devam Ediyor",
+    "price": "1950000",
+    "rooms": "3+1, 4+2, 5+2",
+    "totalUnits": 156,
+    "deliveryDate": "2027-12",
+    "floors": 42,
+    "blockCount": 2,
+    "features": [
+      "Boğaz Manzarası",
+      "5 Yıldız Otel Hizmeti",
+      "Infinity Pool",
+      "SPA & Hamam",
+      "Michelin Restaurant",
+      "Private Beach"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "3+1 Boğaz Manzaralı",
+        "count": 64,
+        "size": "195 m²",
+        "priceRange": "₺18,500,000 - ₺22,500,000"
+      },
+      {
+        "type": "4+2 Penthouse",
+        "count": 72,
+        "size": "285 m²",
+        "priceRange": "₺28,500,000 - ₺35,000,000"
+      },
+      {
+        "type": "5+2 Sky Villa",
+        "count": 20,
+        "size": "420 m²",
+        "priceRange": "₺48,000,000 - ₺62,000,000"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Bahçeşehir Modern Yaşam",
+    "firmaId": 9,
+    "description": "Bahçeşehir'de aileler için ideal, geniş yeşil alanlar ve sosyal donatı alanlarıyla donatılmış proje.",
+    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800",
+    "location": "Bahçeşehir, İstanbul",
+    "status": "Teslime Hazır",
+    "price": "520000",
+    "rooms": "2+1, 3+1, 4+1",
+    "totalUnits": 324,
+    "deliveryDate": "2026-10",
+    "floors": 10,
+    "blockCount": 6,
+    "features": [
+      "Anaokulu",
+      "Market",
+      "Sağlık Merkezi",
+      "Spor Alanları",
+      "Piknik Alanı",
+      "Bisiklet Yolu"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "2+1",
+        "count": 142,
+        "size": "105 m²",
+        "priceRange": "₺4,200,000 - ₺5,200,000"
+      },
+      {
+        "type": "3+1",
+        "count": 156,
+        "size": "135 m²",
+        "priceRange": "₺5,800,000 - ₺6,800,000"
+      },
+      {
+        "type": "4+1 Dubleks",
+        "count": 26,
+        "size": "185 m²",
+        "priceRange": "₺7,500,000 - ₺8,900,000"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Zekeriyaköy Villaları",
+    "firmaId": 3,
+    "description": "Sarıyer Zekeriyaköy'de, doğayla iç içe lüks villa yaşamı. Özel güvenlik ve sosyal imkanlar.",
+    "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800",
+    "location": "Zekeriyaköy, Sarıyer",
+    "status": "Devam Ediyor",
+    "price": "2250000",
+    "rooms": "4+1, 5+2, 6+3 Villa",
+    "totalUnits": 42,
+    "deliveryDate": "2027-06",
+    "floors": 2,
+    "blockCount": 42,
+    "features": [
+      "Özel Havuz",
+      "Bahçe",
+      "Şömine",
+      "Kapalı Garaj",
+      "Akıllı Ev Sistemi",
+      "Güvenlik"
+    ],
+    "apartmentTypes": [
+      {
+        "type": "4+1 Villa",
+        "count": 16,
+        "size": "320 m²",
+        "priceRange": "₺18,500,000 - ₺22,500,000"
+      },
+      {
+        "type": "5+2 Villa",
+        "count": 18,
+        "size": "420 m²",
+        "priceRange": "₺25,000,000 - ₺32,000,000"
+      },
+      {
+        "type": "6+3 Luxury Villa",
+        "count": 8,
+        "size": "580 m²",
+        "priceRange": "₺38,000,000 - ₺48,000,000"
+      }
+    ]
+  }
+]

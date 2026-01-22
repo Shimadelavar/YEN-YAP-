@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yeniyapi.com | Lüksün ve Güvenin Adresi</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0a192f;
+            --gold: #d4af37;
+            --gold-hover: #b8860b;
+            --light: #fdfdfd;
+            --soft-gray: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--light);
+            color: var(--navy);
+            overflow-x: hidden;
+        }
+
+        /* YUMUŞAK GEÇİŞ ANİMASYONU */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--gold);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: -1px;
+            color: white !important;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)),
+                url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920");
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            padding: 160px 0 120px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        /* MODERN SEARCH BOX */
+        .search-container {
+            max-width: 750px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 100px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-box input {
+            border: none;
+            padding: 18px 30px;
+            flex: 1;
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        .search-box button {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 0 40px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--gold-hover);
+        }
+
+        /* FEATURE CARDS */
+        .feature-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: var(--navy);
+            border: 1px solid var(--soft-gray);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.1);
+            border-color: var(--gold);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--gold), #f3e5ab);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* SWIPER / PROJECTS */
+        .swiper-slide {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .slide-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+            transition: 0.5s;
+        }
+
+        .swiper-slide:hover .slide-img {
+            transform: scale(1.1);
+        }
+
+        /* CTA BOX */
+        .cta-box {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a365d 100%);
+            color: white;
+            padding: 80px 40px;
+            border-radius: 40px;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 25, 47, 0.3);
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-link {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-link:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        /* SWIPER NAVIGATION STYLES */
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: #cbd5e1;
+            opacity: 1;
+            transition: all 0.3s;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--gold);
+            width: 35px;
+            border-radius: 6px;
+        }
+
+        /* DECORATIVE PATTERNS */
+        .pattern-dots {
+            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="logo text-decoration-none">yeniyapi<span>.com</span></a>
+            <div id="navAuth">
+                <a href="/projeler" class="text-white text-decoration-none me-4 d-none d-md-inline-block">Projeleri
+                    Gez</a>
+                <a href="/hakkimizda"
+                    class="text-white text-decoration-none me-4 d-none d-md-inline-block">Hakkımızda</a>
+                <a href="/kayit-ol" class="btn btn-outline-light btn-sm px-4 rounded-pill me-2">Kayıt Ol</a>
+                <a href="/giris" class="btn btn-gold btn-sm px-4 rounded-pill"
+                    style="background: var(--gold); color: white; font-weight: 600;">Giriş Yap</a>
+            </div>
+            <div id="navUser" style="display:none;">
+                <span class="text-white me-3"><i class="bi bi-person-circle me-1"></i> <span
+                        id="userName">User</span></span>
+                <a href="/profile" class="btn btn-outline-light btn-sm rounded-pill px-3 me-2">Profilim</a>
+                <a href="/logout" class="btn btn-outline-light btn-sm rounded-pill px-3">Çıkış</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Check if user is logged in
+        async function checkAuth() {
+            try {
+                const res = await fetch('/api/check-auth', { credentials: 'include' });
+                if (res.ok) {
+                    const user = await res.json();
+                    document.getElementById('navAuth').style.display = 'none';
+                    document.getElementById('navUser').style.display = 'block';
+                    document.getElementById('userName').textContent = user.name;
+                    if (user.role !== 'admin') {
+                        document.querySelector('[href="/admin-panel"]').style.display = 'none';
+                    }
+                }
+            } catch (err) { }
+        }
+        checkAuth();
+    </script>
+
+    <section class="hero">
+        <div class="container fade-in">
+            <h1 class="fw-800">
+                Geleceğin Yapılarıyla<br>
+                <span style="color: var(--gold);">Bugünden Tanışın.</span>
+            </h1>
+            <p class="mt-4 opacity-75 fs-5">
+                Türkiye’nin en prestijli projelerini ve güvenilir inşaat firmalarını<br class="d-none d-md-block">
+                dijital konforla keşfetmeye başlayın.
+            </p>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Şehir, ilçe veya proje adı yazın...">
+                    <button class="d-none d-sm-block">KEŞFET</button>
+                    <button class="d-block d-sm-none px-3"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-n5" style="margin-top: -50px; position: relative; z-index: 10;">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="/firma-detay" class="feature-card d-block">
+                    <i class="bi bi-patch-check"></i>
+                    <h5 class="fw-bold">Firmaların Projeleri</h5>
+                    <p class="small text-muted mb-0">Sektörün öncü ve güvenilir inşaat devleri tek çatı altında.</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/projeler" class="feature-card d-block text-decoration-none">
+                    <i class="bi bi-building-up"></i>
+                    <h5 class="fw-bold">Yatırım Projeleri</h5>
+                    <p class="small text-muted mb-0">
+                        Türkiye'nin en seçkin gayrimenkul yatırım fırsatlarını keşfedin.
+                    </p>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="/firmalar" class="feature-card d-block">
+                    <i class="bi bi-shield-lock"></i>
+                    <h5 class="fw-bold">Güvenilir Firmalar</h5>
+                    <p class="small text-muted mb-0">Onaylı ve kurumsal inşaat firmalarını inceleyin.</p>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ÖNE ÇIKAN PROJELER - ENHANCED SLIDESHOW -->
+    <div class="container mt-5 pt-5 mb-5" style="position: relative;">
+        <!-- Decorative Background Elements -->
+        <div
+            style="position: absolute; top: -50px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0;">
+        </div>
+        <div
+            style="position: absolute; bottom: -80px; left: -80px; width: 200px; height: 200px; background: linear-gradient(135deg, rgba(10, 25, 47, 0.05) 0%, transparent 70%); border-radius: 50%; z-index: 0;">
+        </div>
+
+        <div class="d-flex justify-content-between align-items-end mb-4" style="position: relative; z-index: 1;">
+            <div>
+                <h6 class="text-uppercase fw-bold text-muted mb-1" style="letter-spacing: 2px; font-size: 0.7rem;">Sizin
+                    İçin Seçtiklerimiz</h6>
+                <h3 class="fw-bold m-0">Öne Çıkan Yatırımlar</h3>
+            </div>
+            <a href="/projeler" class="text-decoration-none fw-bold" style="color: var(--gold);">Tümünü Gör →</a>
+        </div>
+
+        <!-- Enhanced Swiper Container -->
+        <div
+            style="position: relative; background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(212, 175, 55, 0.05) 100%); border-radius: 30px; padding: 40px 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.08);">
+            <div class="swiper mySwiper" style="overflow: visible;">
+                <div class="swiper-wrapper" id="projectsCarousel">
+                    <!-- Projeler JavaScript'le yüklenecek -->
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="swiper-button-prev"
+                    style="color: var(--gold); background: white; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); left: -25px;">
+                </div>
+                <div class="swiper-button-next"
+                    style="color: var(--gold); background: white; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); right: -25px;">
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination mt-4" style="position: relative; bottom: 0;"></div>
+            </div>
+
+            <!-- Decorative lines -->
+            <div
+                style="position: absolute; top: 20px; left: 20px; width: 60px; height: 3px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);">
+            </div>
+            <div
+                style="position: absolute; bottom: 20px; right: 20px; width: 80px; height: 3px; background: linear-gradient(90deg, transparent 0%, var(--gold) 100%);">
+            </div>
+        </div>
+    </div>
+
+    <!-- İSTATİSTİKLER BÖLÜMÜ -->
+    <div class="container mt-5 py-5">
+        <div class="row g-4 text-center">
+            <div class="col-6 col-md-3">
+                <div class="p-4">
+                    <h2 class="fw-800 mb-2" style="color: var(--gold); font-size: 3rem;">12+</h2>
+                    <p class="text-muted fw-600 small">Aktif Proje</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-4">
+                    <h2 class="fw-800 mb-2" style="color: var(--gold); font-size: 3rem;">9</h2>
+                    <p class="text-muted fw-600 small">Güvenilir Firma</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-4">
+                    <h2 class="fw-800 mb-2" style="color: var(--gold); font-size: 3rem;">450+</h2>
+                    <p class="text-muted fw-600 small">Mutlu Müşteri</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-4">
+                    <h2 class="fw-800 mb-2" style="color: var(--gold); font-size: 3rem;">₺2.5M</h2>
+                    <p class="text-muted fw-600 small">Ort. Proje Değeri</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEDEN BİZ? BÖLÜMÜ -->
+    <div class="container my-5 py-5"
+        style="background: white; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-muted mb-2" style="letter-spacing: 2px; font-size: 0.7rem;">
+                AVANTAJLARIMIZ</h6>
+            <h2 class="fw-bold">Neden yeniyapi.com?</h2>
+        </div>
+        <div class="row g-4 p-4">
+            <div class="col-md-4">
+                <div class="text-center p-4">
+                    <div class="mb-3"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--gold), #f3e5ab); border-radius: 20px; display: inline-flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-shield-check text-white" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">%100 Güvenilir</h5>
+                    <p class="text-muted small">
+                        Sadece lisanslı ve kurumsal firmalarla çalışıyoruz. Her proje detaylı incelemeye tabi tutulur.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center p-4">
+                    <div class="mb-3"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--gold), #f3e5ab); border-radius: 20px; display: inline-flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-graph-up-arrow text-white" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Şeffaf Fiyatlandırma</h5>
+                    <p class="text-muted small">
+                        Tüm proje fiyatları ve ödeme planları açık ve net. Gizli maliyet yok.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center p-4">
+                    <div class="mb-3"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--gold), #f3e5ab); border-radius: 20px; display: inline-flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-headset text-white" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Uzman Destek</h5>
+                    <p class="text-muted small">
+                        Deneyimli gayrimenkul danışmanlarımız size en uygun projeyi bulmakta yardımcı olur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÜŞTERİ YORUMLARI -->
+    <div class="container my-5 py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-muted mb-2" style="letter-spacing: 2px; font-size: 0.7rem;">MÜŞTERİ
+                GÖRÜŞLERİ</h6>
+            <h2 class="fw-bold">Müşterilerimiz Ne Diyor?</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="p-4"
+                    style="background: white; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); height: 100%;">
+                    <div class="mb-3">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <p class="mb-4 fst-italic">
+                        "Hayalimdeki daireyi bu platform sayesinde buldum. Tüm bilgiler çok net ve detaylıydı.
+                        Danışmanlar son derece ilgiliydi."
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center text-white fw-bold me-3"
+                            style="width: 50px; height: 50px;">
+                            AB
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-0">Ayşe B.</h6>
+                            <small class="text-muted">Maltepe Projesi</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4"
+                    style="background: white; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); height: 100%;">
+                    <div class="mb-3">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <p class="mb-4 fst-italic">
+                        "Çok profesyonel bir hizmet. Proje detayları, fiyatlar, daire tipleri her şey çok açık.
+                        Kesinlikle tavsiye ederim."
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center text-white fw-bold me-3"
+                            style="width: 50px; height: 50px;">
+                            MK
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-0">Mehmet K.</h6>
+                            <small class="text-muted">Bomonti Concept</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4"
+                    style="background: white; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); height: 100%;">
+                    <div class="mb-3">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <p class="mb-4 fst-italic">
+                        "İlk ev alışverişimdi ve çok endişeliydim. Ancak burada her şey çok kolay ve anlaşılır.
+                        Teşekkürler!"
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center text-white fw-bold me-3"
+                            style="width: 50px; height: 50px;">
+                            ZA
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-0">Zeynep A.</h6>
+                            <small class="text-muted">Bahçeşehir Modern Yaşam</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="cta-box text-center">
+            <h2 class="fw-bold mb-3">Hayalindeki Eve Giden Yol</h2>
+            <p class="opacity-75 fs-5 mb-4">Ücretsiz danışmanlık ve size özel ödeme planları için uzmanlarımız sizi
+                bekliyor.</p>
+            <a href="/randevu" class="btn btn-light btn-lg fw-bold px-5 rounded-pill shadow">
+                Hemen Randevu Oluştur
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <a href="/" class="logo text-decoration-none">yeniyapi<span>.com</span></a>
+                    <p class="text-muted mt-3 pe-lg-5">Gayrimenkul dünyasında teknoloji ve güveni birleştirerek,
+                        hayallerinizdeki yapıya ulaşmanızı kolaylaştırıyoruz.</p>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3">Hızlı Bağlantılar</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="/" class="footer-link">Anasayfa</a>
+                        <a href="/firmalar" class="footer-link">Tüm Firmalar</a>
+                        <a href="/projeler" class="footer-link">Projeler</a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3">Kurumsal</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="/hakkimizda" class="footer-link">Hakkımızda</a>
+                        <a href="#" class="footer-link">Kullanım Şartları</a>
+                        <a href="#" class="footer-link">İletişim</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="fw-bold mb-3">Bültene Abone Ol</h6>
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-dark border-0 text-white"
+                            placeholder="E-posta adresiniz">
+                        <button class="btn btn-gold" type="button"
+                            style="background:var(--gold); color:white;">Gönder</button>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center mt-4">
+                <p class="small text-muted mb-0">© 2026 yeniyapi.com - Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Carousel'i projelerle doldur
+        async function loadCarousel() {
+            try {
+                const response = await fetch('/api/projeler');
+                const projects = await response.json();
+
+                // İlk 6 projeyi carousel'de göster
+                const carouselContainer = document.getElementById('projectsCarousel');
+                const slides = projects.slice(0, 6).map((project, index) => `
+                    <div class="swiper-slide">
+                        <div class="position-relative">
+                            ${index === 0 ? '<span class="project-badge">Popüler</span>' : index === 2 ? '<span class="project-badge" style="background: #27ae60;">Yeni</span>' : ''}
+                            <img class="slide-img" src="${project.image || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750'}" alt="${project.name}">
+                        </div>
+                        <div class="p-4">
+                            <h5 class="fw-bold mb-1">${project.name}</h5>
+                            <p class="text-muted small mb-3"><i class="bi bi-geo-alt"></i> ${project.location || 'İstanbul'}</p>
+                            <a href="/proje-detay?id=${project.id}" class="btn btn-outline-dark w-100 rounded-pill">Detayları Gör</a>
+                        </div>
+                    </div>
+                `).join('');
+
+                carouselContainer.innerHTML = slides;
+
+                // Swiper'ı başlat - Enhanced with navigation
+                new Swiper(".mySwiper", {
+                    loop: true,
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                        dynamicBullets: true
+                    },
+                    spaceBetween: 30,
+                    breakpoints: {
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 }
+                    },
+                    effect: 'slide',
+                    speed: 800
+                });
+            } catch (error) {
+                console.error('Carousel yüklenirken hata:', error);
+            }
+        }
+
+        // Sayfa yüklendiğinde carousel'i doldur
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCarousel();
+        });
+    </script>
+
+</body>
+
+</html>
